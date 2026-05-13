@@ -4,6 +4,8 @@ export default function ParticleBackground() {
   const canvasRef = useRef(null)
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
@@ -46,11 +48,9 @@ export default function ParticleBackground() {
         this.y += this.vy
         this.pulse += this.pulseSpeed
 
-        // Bounce suave
         if (this.x < 0 || this.x > canvas.width) this.vx *= -1
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1
 
-        // Mouse repulsion suave
         if (mouse.x !== null) {
           const dx = this.x - mouse.x
           const dy = this.y - mouse.y
@@ -112,7 +112,16 @@ export default function ParticleBackground() {
     }
     const onMouseLeave = () => { mouse.x = null; mouse.y = null }
 
-    window.addEventListener('resize', () => { resize(); particles.forEach(p => p.reset()) })
+    let resizeTimer
+    const onResize = () => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(() => {
+        resize()
+        particles.forEach(p => p.reset())
+      }, 100)
+    }
+
+    window.addEventListener('resize', onResize)
     window.addEventListener('mousemove', onMouseMove)
     window.addEventListener('mouseleave', onMouseLeave)
 
@@ -121,7 +130,8 @@ export default function ParticleBackground() {
 
     return () => {
       cancelAnimationFrame(animId)
-      window.removeEventListener('resize', resize)
+      clearTimeout(resizeTimer)
+      window.removeEventListener('resize', onResize)
       window.removeEventListener('mousemove', onMouseMove)
       window.removeEventListener('mouseleave', onMouseLeave)
     }

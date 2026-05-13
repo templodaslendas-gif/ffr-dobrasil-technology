@@ -1,7 +1,6 @@
 import React from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-
-const WA_LINK = "https://wa.me/5545999317831?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20FFR%20do%20Brasil%20Technology%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+import { WA_LINK } from '../constants'
 
 export default function Video() {
   const ref = useScrollReveal()
@@ -20,18 +19,27 @@ export default function Video() {
           </p>
         </div>
 
-        <div data-reveal className="relative bg-[#141414] border border-white/5 rounded-3xl overflow-hidden aspect-video flex items-center justify-center group hover:border-ffr-green/20 transition-colors duration-300">
-          {/* Placeholder */}
-          <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,200,83,0.05) 0%, transparent 70%)' }}/>
+        <div data-reveal className="relative bg-[#141414] border border-white/5 rounded-3xl overflow-hidden aspect-video flex items-center justify-center group hover:border-ffr-green/20 transition-colors duration-300 cursor-pointer">
+          {/* Background */}
+          <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,200,83,0.06) 0%, transparent 70%)' }}/>
+          <div className="absolute inset-0 opacity-[0.02]"
+            style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '40px 40px' }}/>
 
-          <div className="relative text-center">
-            <div className="w-20 h-20 rounded-full bg-ffr-green/10 border border-ffr-green/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-ffr-green/15 transition-colors cursor-pointer">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="#00C853">
+          {/* Decorative ring */}
+          <div className="absolute w-48 h-48 rounded-full border border-ffr-green/8 pointer-events-none"/>
+          <div className="absolute w-64 h-64 rounded-full border border-ffr-green/4 pointer-events-none"/>
+
+          {/* Play button */}
+          <div className="relative flex flex-col items-center gap-5">
+            <div className="w-20 h-20 rounded-full bg-ffr-green/10 border border-ffr-green/25 flex items-center justify-center group-hover:bg-ffr-green/18 group-hover:scale-105 group-hover:border-ffr-green/40 transition-all duration-300">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#00C853">
                 <polygon points="5 3 19 12 5 21 5 3"/>
               </svg>
             </div>
-            <p className="font-mono text-[11px] text-white/20 tracking-widest uppercase mb-1">video-apresentacao-ffr.mp4</p>
-            <p className="font-body text-xs text-white/15">Vídeo de apresentação em breve</p>
+            <div className="text-center">
+              <p className="font-display font-semibold text-white/80 text-sm">Vídeo de apresentação</p>
+              <p className="font-body text-xs text-white/30 mt-1">FFR do Brasil Technology</p>
+            </div>
           </div>
         </div>
 

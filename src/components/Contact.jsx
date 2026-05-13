@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-
-const WA_LINK = "https://wa.me/5545999317831?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20FFR%20do%20Brasil%20Technology%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+import { WA_LINK, WA_PHONE } from '../constants'
 
 const services = [
   'Site profissional',
@@ -21,7 +20,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const msg = `Olá, vim pelo site da FFR do Brasil Technology!%0A%0ANome: ${encodeURIComponent(form.name)}%0AEmpresa: ${encodeURIComponent(form.company)}%0AServiço: ${encodeURIComponent(form.service)}%0AMensagem: ${encodeURIComponent(form.message)}`
-    window.open(`https://wa.me/5545999317831?text=${msg}`, '_blank')
+    window.open(`https://wa.me/${WA_PHONE}?text=${msg}`, '_blank')
     setSent(true)
   }
 

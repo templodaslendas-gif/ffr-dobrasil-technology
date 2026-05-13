@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
-const WA_LINK = "https://wa.me/5545999317831?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20FFR%20do%20Brasil%20Technology%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+import { WA_LINK } from '../constants'
 
 const Logo = () => (
   <a href="#inicio" className="flex items-center gap-3 group">
@@ -12,7 +11,7 @@ const Logo = () => (
       </svg>
     </div>
     <div className="leading-tight">
-      <div className="font-display font-800 text-sm text-white tracking-tight">FFR do Brasil</div>
+      <div className="font-display font-bold text-sm text-white tracking-tight">FFR do Brasil</div>
       <div className="font-mono text-[9px] text-ffr-green tracking-widest uppercase">Technology</div>
     </div>
   </a>

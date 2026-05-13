@@ -1,24 +1,21 @@
 import React from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-
-const WA_LINK = "https://wa.me/5545999317831?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20FFR%20do%20Brasil%20Technology%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+import { WA_LINK } from '../constants'
 
 const projects = [
   {
     name: 'F & F Instalações',
     category: 'Climatização & Segurança',
-    desc: 'Site premium para empresa de climatização e sistemas de segurança. Presença digital profissional com foco em captação de orçamentos.',
+    desc: 'Site profissional para empresa de climatização e sistemas de segurança, com foco em captação de orçamentos e presença digital de autoridade.',
     tags: ['Site profissional', 'SEO', 'WhatsApp integrado'],
     color: '#00C853',
-    url: '#',
   },
   {
     name: 'Auto Elétrica e Mecânica do João',
     category: 'Oficina Bosch',
-    desc: 'Site moderno para oficina autorizada Bosch. Transparência, credibilidade e agendamento simplificado para clientes.',
+    desc: 'Site moderno para oficina autorizada Bosch com foco em transmitir credibilidade, transparência e facilidade de agendamento para os clientes.',
     tags: ['Site premium', 'Landing page', 'Mobile-first'],
     color: '#F5C842',
-    url: '#',
   },
 ]
 
@@ -39,7 +36,6 @@ const BrowserPreview = ({ project }) => (
         </div>
       </div>
       <div className="p-4">
-        {/* Hero area */}
         <div className="rounded-xl overflow-hidden mb-3" style={{ background: `linear-gradient(135deg, ${project.color}15 0%, rgba(13,13,13,0.8) 100%)` }}>
           <div className="p-4">
             <div className="w-20 h-2 rounded mb-2" style={{ background: `${project.color}60` }}/>
@@ -51,7 +47,6 @@ const BrowserPreview = ({ project }) => (
             </div>
           </div>
         </div>
-        {/* Cards row */}
         <div className="grid grid-cols-3 gap-2">
           {[1,2,3].map(i => (
             <div key={i} className="bg-white/4 rounded-lg p-2">
@@ -64,7 +59,6 @@ const BrowserPreview = ({ project }) => (
       </div>
     </div>
 
-    {/* Category badge */}
     <div className="absolute -top-3 -right-3 font-mono text-[10px] font-medium px-2.5 py-1 rounded-full border"
       style={{ color: project.color, background: `${project.color}15`, borderColor: `${project.color}30` }}>
       {project.category}
@@ -80,19 +74,14 @@ export default function Portfolio() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ffr-blue/2 to-transparent pointer-events-none"/>
 
       <div className="max-w-7xl mx-auto px-5">
-        <div className="text-center mb-6">
+        <div className="text-center mb-16">
           <div className="section-tag">Portfólio</div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
-            Projetos <span className="text-gradient-green">demonstrativos</span>
+            Nossos <span className="text-gradient-green">projetos</span>
           </h2>
           <p className="font-body text-white/40 max-w-xl mx-auto">
-            Criamos demonstrações reais para empresas locais visualizarem como sua presença digital pode ficar mais profissional.
+            Soluções digitais desenvolvidas para negócios locais que queriam fortalecer sua presença online e atrair mais clientes.
           </p>
-        </div>
-
-        <div className="inline-flex items-center gap-2 font-mono text-[10px] text-ffr-gold border border-ffr-gold/20 bg-ffr-gold/5 px-3 py-1.5 rounded-full mx-auto flex mb-12">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          Projetos conceito — demonstrações de como o seu negócio ficaria
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">

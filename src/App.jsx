@@ -5,6 +5,7 @@ import ParticleBackground from './components/ParticleBackground'
 import Problem from './components/Problem'
 import Solutions from './components/Solutions'
 import Portfolio from './components/Portfolio'
+import Testimonials from './components/Testimonials'
 import HowItWorks from './components/HowItWorks'
 import Differentials from './components/Differentials'
 import About from './components/About'
@@ -25,6 +26,7 @@ export default function App() {
         <Problem />
         <Solutions />
         <Portfolio />
+        <Testimonials />
         <HowItWorks />
         <Differentials />
         <About />
